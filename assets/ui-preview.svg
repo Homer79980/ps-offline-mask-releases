@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">PS Offline Mask UI preview</title>
+  <desc id="desc">A dark Photoshop companion panel with local algorithm selection, one-click cutout, canvas preview, trimap tools, and apply mask controls.</desc>
+  <rect width="1280" height="720" fill="#111417"/>
+  <rect x="36" y="28" width="1208" height="664" rx="10" fill="#1a1f24" stroke="#303942"/>
+  <rect x="36" y="28" width="1208" height="66" rx="10" fill="#20262c"/>
+  <circle cx="70" cy="61" r="17" fill="#d4f36a"/>
+  <text x="70" y="67" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#111417">PM</text>
+  <text x="101" y="57" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#f2f5f4">离线抠图</text>
+  <text x="101" y="77" font-family="Arial, sans-serif" font-size="11" fill="#8f9aa1">Canvas companion</text>
+  <rect x="1035" y="47" width="92" height="28" rx="14" fill="#26312c" stroke="#425047"/>
+  <text x="1081" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#d4f36a">本地算法</text>
+  <text x="1150" y="64" font-family="Arial, sans-serif" font-size="11" fill="#93a19f">降级预览引擎</text>
+
+  <rect x="62" y="116" width="1156" height="60" rx="8" fill="#20262c" stroke="#303942"/>
+  <rect x="80" y="134" width="24" height="24" rx="4" fill="#3d4b56"/>
+  <path d="M86 153l6-8 5 5 4-6" fill="none" stroke="#d4f36a" stroke-width="2"/>
+  <text x="122" y="140" font-family="Arial, sans-serif" font-size="11" fill="#8f9aa1">当前图层</text>
+  <text x="122" y="158" font-family="Arial, sans-serif" font-size="14" fill="#f2f5f4">Character_UI_01 · 2048 × 2048</text>
+  <rect x="1098" y="130" width="88" height="30" rx="5" fill="#2b333a" stroke="#49545b"/>
+  <text x="1142" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#f2f5f4">重新读取</text>
+
+  <rect x="62" y="198" width="706" height="464" rx="8" fill="#15191c" stroke="#303942"/>
+  <text x="88" y="232" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f2f5f4">结果显示在 Photoshop 画布</text>
+  <text x="88" y="254" font-family="Arial, sans-serif" font-size="12" fill="#8f9aa1">面板只负责控制，画布中看到的是蒙版预览。</text>
+  <rect x="88" y="274" width="654" height="260" rx="6" fill="#252b30"/>
+  <path d="M88 339h654M88 404h654M88 469h654M252 274v260M415 274v260M579 274v260" stroke="#394249" stroke-width="1"/>
+  <path d="M258 460c42-18 48-103 91-114 38-10 51 40 75 46 33 8 48-52 86-47 38 5 54 69 101 61 33-6 47-42 76-55 20-9 36 1 55 22v161H258z" fill="#d4f36a" opacity=".88"/>
+  <path d="M301 430c22-51 32-70 56-75 24-6 37 12 45 34 14 38 33 52 53 53 24 1 35-21 55-48 19-26 33-36 53-32" fill="none" stroke="#f2f5f4" stroke-width="4" opacity=".86"/>
+  <rect x="88" y="554" width="654" height="42" rx="5" fill="#20262c"/>
+  <circle cx="108" cy="575" r="5" fill="#d4f36a"/>
+  <text x="124" y="579" font-family="Arial, sans-serif" font-size="12" fill="#d4f36a">正在预览临时蒙版</text>
+  <text x="88" y="630" font-family="Arial, sans-serif" font-size="12" fill="#8f9aa1">结果只写入临时预览，确认后才应用到图层。</text>
+
+  <rect x="794" y="198" width="424" height="464" rx="8" fill="#20262c" stroke="#303942"/>
+  <rect x="820" y="222" width="372" height="54" rx="6" fill="#d4f36a"/>
+  <text x="846" y="247" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#111417">一键抠图</text>
+  <text x="846" y="264" font-family="Arial, sans-serif" font-size="11" fill="#34400f">生成蒙版预览，不会立即修改图层</text>
+  <rect x="820" y="296" width="372" height="42" rx="6" fill="#293138" stroke="#46525b"/>
+  <text x="842" y="322" font-family="Arial, sans-serif" font-size="12" fill="#8f9aa1">画布预览</text>
+  <text x="1148" y="322" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#f2f5f4">原图  ▾</text>
+  <text x="820" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#f2f5f4">边缘参数</text>
+  <text x="820" y="400" font-family="Arial, sans-serif" font-size="12" fill="#8f9aa1">边缘偏移</text>
+  <line x1="912" y1="396" x2="1174" y2="396" stroke="#4b5962" stroke-width="4"/>
+  <circle cx="1043" cy="396" r="7" fill="#d4f36a"/>
+  <text x="820" y="438" font-family="Arial, sans-serif" font-size="12" fill="#8f9aa1">羽化</text>
+  <line x1="912" y1="434" x2="1174" y2="434" stroke="#4b5962" stroke-width="4"/>
+  <circle cx="1008" cy="434" r="7" fill="#d4f36a"/>
+  <text x="820" y="476" font-family="Arial, sans-serif" font-size="12" fill="#8f9aa1">硬边阈值</text>
+  <line x1="912" y1="472" x2="1174" y2="472" stroke="#4b5962" stroke-width="4"/>
+  <circle cx="1082" cy="472" r="7" fill="#d4f36a"/>
+  <rect x="820" y="503" width="372" height="42" rx="6" fill="#293138" stroke="#46525b"/>
+  <text x="842" y="529" font-family="Arial, sans-serif" font-size="12" fill="#f2f5f4">＋ 手动精修</text>
+  <text x="1170" y="529" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#8f9aa1">自动结果不理想时使用</text>
+  <rect x="820" y="574" width="174" height="38" rx="5" fill="#293138" stroke="#58646b"/>
+  <text x="907" y="598" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#f2f5f4">取消预览</text>
+  <rect x="1018" y="574" width="174" height="38" rx="5" fill="#d4f36a"/>
+  <text x="1105" y="598" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#111417">应用蒙版</text>
+</svg>

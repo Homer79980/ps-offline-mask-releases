@@ -1,0 +1,13 @@
+*.zip
+*.ccx
+*.unitypackage
+*.psd
+*.psb
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+.DS_Store
+Thumbs.db
