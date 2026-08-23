@@ -2,14 +2,16 @@
 
 Photoshop 抠图插件的公开下载仓库。
 
-![A 版面板预览](assets/ui-preview.svg)
+![0.2.0 面板预览](assets/ui-preview-0.2.png)
 
 ## 当前下载
 
 请前往 [Releases](https://github.com/Homer79980/ps-offline-mask-releases/releases) 下载最新版本：
 
 - `ps-offline-mask-*-uxp-preview.zip`：UXP Developer Tool 开发预览包
-- 生产 `.ccx`：待 C++ Hybrid 原生引擎、Windows/macOS 签名和 Photoshop 24.2+ 回归完成后发布
+- 生产 `.ccx`：待 C++ Hybrid 原生引擎、Windows/macOS 签名和 Photoshop 24.4+ 回归完成后发布
+
+`v0.2.0-preview` 增加 5%–800% 自由缩放、适合窗口、本地一键抠图、可取消计算、真实形态学边缘偏移、严格图层边界校验，以及默认关闭的通用 AI 视觉模型 API 接口。
 
 源码、测试和 PRD 位于私有源码仓库，不在本仓库维护。
 
@@ -20,7 +22,7 @@ Photoshop 抠图插件的公开下载仓库。
 
 ## 兼容性
 
-- Photoshop 24.2+
+- Photoshop 24.4+（使用稳定版 Imaging API）
 - Windows x64、macOS Intel x64、macOS Apple Silicon arm64（开发预览阶段以 UXP 宿主实测为准）
 - 默认纯本地算法；AI 视觉模型 API 为可选运行时配置
 

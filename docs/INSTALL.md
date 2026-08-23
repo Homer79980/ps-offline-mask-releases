@@ -4,7 +4,7 @@
 
 当前 Release 提供的是 UXP Developer Tool 开发预览包，不是签名后的生产 `.ccx`。
 
-1. 安装 Photoshop 24.2 或更高版本。
+1. 安装 Photoshop 24.4 或更高版本。
 2. 安装 Adobe UXP Developer Tool。
 3. 从本仓库的 [Releases](https://github.com/Homer79980/ps-offline-mask-releases/releases) 下载 `ps-offline-mask-*-uxp-preview.zip`。
 4. 解压后，在 UXP Developer Tool 中选择 **Add Plugin**，指向解压目录中的 `manifest.json`。
@@ -24,4 +24,4 @@ Get-FileHash .\ps-offline-mask-*-uxp-preview.zip -Algorithm SHA256
 
 ## 生产版说明
 
-签名 `.ccx` 尚未发布。生产版需要包含签名的 C++ Hybrid 原生引擎，并分别完成 Windows x64、macOS Intel x64、macOS Apple Silicon arm64 的安装和运行验收。
+签名 `.ccx` 尚未发布。生产版需要包含签名的 C++ Hybrid 原生引擎，并分别完成 Windows x64、macOS Intel x64、macOS Apple Silicon arm64 的安装和运行验收。开发预览不应作为生产版本分发。
