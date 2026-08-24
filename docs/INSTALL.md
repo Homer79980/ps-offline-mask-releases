@@ -2,7 +2,7 @@
 
 ## 当前版本状态
 
-当前公开下载是 UXP Developer Tool 开发预览包，不是签名后的生产 `.ccx`。它用于验证面板、Trimap、Photoshop 画布临时蒙版预览和本地算法流程。生产 `.ccx` 需要后续接入 C++ Hybrid 原生引擎、完成 Windows/macOS 签名，并在 Photoshop 24.4+ 上验收。
+当前公开下载是 UXP Developer Tool 开发预览包，不是签名后的生产 `.ccx`。它用于验证单入口面板、Trimap 精修窗口、插件内蒙版预览和本地算法流程。生产 `.ccx` 需要后续接入 C++ Hybrid 原生引擎、完成 Windows/macOS 签名，并在 Photoshop 24.4+ 上验收。
 
 发布前在仓库根目录运行 `npm run audit:release`。生产包还必须在包含三平台 Addon 和 `native/release-integrity.json` 的组装目录中，于 macOS 运行 `npm run audit:production`；AI 变体使用 `node scripts/audit-release.js --production --manifest=plugin/manifest.ai.json`。审计会检查 canonical manifest、二进制架构、SHA-256 完整性、macOS 签名及 Gatekeeper/公证状态，失败时不要上传 Release。
 
@@ -13,11 +13,11 @@
 3. 从 GitHub Releases 下载 `ps-offline-mask-*-uxp-preview.zip` 并解压到本地目录。
 4. 打开 UXP Developer Tool，选择 **Add Plugin**，指向解压目录中的 `manifest.json`。
 5. 点击 **Load**，在 Photoshop 的插件菜单中打开“离线抠图”面板。
-6. 主面板会显示当前图层/蒙版结果缩略图。点击“打开抠图精修工作区”进入可拉伸的独立精修面板；只有自动打开失败时才需要从插件菜单单独打开“抠图精修”。
+6. 主面板会显示当前图层/蒙版结果缩略图。点击面板内的“打开抠图精修窗口”进入大尺寸精修工作区。
 
-“离线抠图”主面板范围约为 `320×420` 到 `1600×2400`；“抠图精修”面板范围约为 `480×420` 到 `3000×3000`，推荐浮动尺寸为 `1100×820`。两个面板都由 Photoshop 管理，可以停靠或拖出并调整大小。Photoshop 会自动把每个原生 UXP 面板列入插件菜单，因此菜单中会同时出现“离线抠图”和“抠图精修”；后者是主面板自动打开失败时的备用入口，UXP 没有在保留独立可拉伸面板时隐藏它的官方配置。
+“离线抠图”主面板范围约为 `320×420` 到 `1600×2400`。Photoshop 插件菜单只显示“离线抠图”；精修窗口由主面板按钮打开，默认设计尺寸为 `1100×820`，并限制在当前可用屏幕范围内。单入口与独立可停靠/任意拉伸面板无法同时成立，本版按用户确认优先保留单入口。
 
-从 `v0.2.4` 升级时必须在 UXP Developer Tool 中先 Stop 并移除旧实例，再从新解压目录重新 Add Plugin。`v0.2.5` 修复了旧包的 `create method is not defined for plugin` 初始化错误；不要直接覆盖旧目录后继续使用已加载实例。
+从 `v0.2.5` 或更早版本升级时，必须在 UXP Developer Tool 中先 Stop 并移除旧实例，再从新解压目录重新 Add Plugin。否则旧 manifest 仍会让菜单显示两个入口；不要直接覆盖旧目录后继续使用已加载实例。
 
 开发预览包只处理当前文档中选中的像素图层；单选一个像素图层时会自动读取，手动“刷新”作为同层内容更新的兜底；多选时进入批量模式并处理全部选中像素图层。文字、智能对象、组和矢量图层需要先在 Photoshop 中栅格化。
 
