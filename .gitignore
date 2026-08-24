@@ -1,6 +1,7 @@
 *.zip
 *.ccx
 *.unitypackage
+downloads/*/
 *.psd
 *.psb
 *.env
