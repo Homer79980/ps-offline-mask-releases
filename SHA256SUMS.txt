@@ -10,3 +10,4 @@ e95282c122b508650ab5cb3c549431e2def4419e12f27908ffb4a8661150ca3a  ps-offline-mas
 93f8c1b23c94448eaab3c92baef2c432c21b7e239fa84b027d514c93ce55fbd2  ps-offline-mask-0.2.5-uxp-preview.zip
 3e993e080796decd895f5dba48cd23e7a31a85962f096087a9d05ca8095bd6d5  ps-offline-mask-0.2.6-uxp-preview.zip
 9ef5cd18347e9895c80ce591877ed0100f3643dc89d4eaa1c5c01b84fe75cb31  ps-offline-mask-0.2.7-uxp-preview.zip
+f48fb98311a1da287d9fdd464a8efea3ffae6f14f7ea9f45c67f311f445b81ce  ps-offline-mask-0.2.8-uxp-preview.zip
