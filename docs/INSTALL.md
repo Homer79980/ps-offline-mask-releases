@@ -10,11 +10,13 @@
 
 1. 安装 Photoshop 24.4 或更高版本。
 2. 安装 Adobe UXP Developer Tool。
-3. 从 GitHub Releases 下载 `ps-offline-mask-*-uxp-preview.zip` 并解压到本地目录。
+3. 从 GitHub Releases 下载 `ps-offline-mask-0.2.3-uxp-preview.zip` 并解压到一个新的本地目录。
 4. 打开 UXP Developer Tool，选择 **Add Plugin**，指向解压目录中的 `manifest.json`。
 5. 点击 **Load**，在 Photoshop 的插件菜单中打开“离线抠图”面板。
 
 面板支持在 Photoshop 中拖拽浮动窗口边缘调整大小，宿主允许的范围为约 `320×420` 到 `1600×2400`。如果旧实例仍保持旧尺寸，请在 UXP Developer Tool 中 Stop 后重新 Load 一次。
+
+从旧版本升级时不要直接覆盖正在 Load 的目录。先 Stop 旧插件，再 Add/Load 新目录中的 `manifest.json`；确认面板标题显示 `v0.2.3 preview` 后再测试。
 
 开发预览包只处理当前文档中选中的像素图层；单选一个像素图层时会自动读取，手动“刷新”作为同层内容更新的兜底；多选时进入批量模式并处理全部选中像素图层。文字、智能对象、组和矢量图层需要先在 Photoshop 中栅格化。
 
