@@ -10,6 +10,8 @@
 4. 解压后，在 UXP Developer Tool 中选择 **Add Plugin**，指向解压目录中的 `manifest.json`。
 5. 点击 **Load**，回到 Photoshop，从插件菜单打开“离线抠图”。
 
+面板支持在 Photoshop 中拖拽浮动窗口边缘调整大小，宿主允许的范围为约 `320×420` 到 `1600×2400`。如果旧实例仍保持旧尺寸，请在 UXP Developer Tool 中 Stop 后重新 Load 一次。
+
 开发预览包只支持像素图层。文字、智能对象、组和矢量图层请先栅格化，或直接选择像素图层。
 
 ## 安装前校验
