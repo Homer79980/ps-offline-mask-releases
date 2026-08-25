@@ -2,17 +2,17 @@
 
 ## 当前版本
 
-`v0.4.0-preview` 是 Photoshop 25.0+ 的 UXP Developer Tool 开发预览包，不是签名 `.ccx`。Windows 和 macOS 使用同一份 JavaScript 预览包；生产 CCX 仍需三平台运行时、签名、公证及真实 Photoshop 回归。
+`v0.4.1-preview` 是 Photoshop 25.0+ 的 UXP Developer Tool 开发预览包，不是签名 `.ccx`。Windows 和 macOS 使用同一份 JavaScript 预览包；生产 CCX 仍需三平台运行时、签名、公证及真实 Photoshop 回归。
 
-自动验证已覆盖 317 项逻辑和契约测试、29 张本地练习图的只读算法审计、语法检查与预览发布树审计。开发过程不会自动操作用户的 Photoshop；实际画笔、模态窗口、蒙版写回与文件夹选择器需由用户安装后验收。
+自动验证已覆盖 327 项逻辑和契约测试、43 张本地练习图的只读算法审计、语法检查与预览发布树审计。练习集有 36 张通过自动残留门，7 张需人工或精修复核。开发过程不会自动操作用户的 Photoshop；实际画笔、模态窗口、蒙版写回与文件夹选择器需由用户安装后验收。
 
 ## 安装开发预览包
 
 1. 安装 Photoshop 25.0 或更高版本。
 2. 安装 Adobe UXP Developer Tool。
-3. 从公开仓库 [Releases](https://github.com/Homer79980/ps-offline-mask-releases/releases) 下载 `ps-offline-mask-0.4.0-uxp-preview.zip`。
+3. 从公开仓库 [Releases](https://github.com/Homer79980/ps-offline-mask-releases/releases) 下载 `ps-offline-mask-0.4.1-uxp-preview.zip`。
 4. 对照 Release 中的 SHA-256 校验下载文件。
-5. 解压 ZIP。打开 UXP Developer Tool，选择 **Add Plugin**，指向解压目录中的 `manifest.json`。
+5. 解压 ZIP。打开 UXP Developer Tool，选择 **Add Plugin**，指向解压目录中的 `plugin/manifest.json`。
 6. 点击 **Load**，再从 Photoshop 的“增效工具/插件”菜单打开“离线抠图”。菜单中只应有一个入口。
 
 从旧版升级时，先在 UXP Developer Tool 中 Stop 并移除旧实例，再解压新包并重新 Add Plugin。不要覆盖仍在加载的旧目录，否则 Photoshop 可能继续运行旧脚本和旧窗口定义。
