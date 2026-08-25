@@ -1,44 +1,55 @@
 # 安装说明
 
-## 当前版本状态
+## 当前版本
 
-当前下载是 `v0.3.5-preview` UXP Developer Tool 开发预览包，不是签名后的生产 `.ccx`。最低宿主为 Photoshop 25.0。纯色背景算法已通过无宿主自动化质量门；29 张本地练习素材中，23 张算法适用图逐图通过、3 张非纯色边框图判为不适用、3 张同色歧义图要求精修或视觉 API。精修输入、前景图层写回、批量宿主写回和 Windows/macOS 安装仍需真实宿主验收，不能把此包当作生产版。
+`v0.4.0-preview` 是 Photoshop 25.0+ 的 UXP Developer Tool 开发预览包，不是签名 `.ccx`。Windows 和 macOS 使用同一份 JavaScript 预览包；生产 CCX 仍需三平台运行时、签名、公证及真实 Photoshop 回归。
 
-发布前在仓库根目录运行 `npm run audit:release`。生产包还必须在包含三平台 Addon 和 `native/release-integrity.json` 的组装目录中，于 macOS 运行 `npm run audit:production`；AI 变体使用 `node scripts/audit-release.js --production --manifest=plugin/manifest.ai.json`。审计会检查 canonical manifest、二进制架构、SHA-256 完整性、macOS 签名及 Gatekeeper/公证状态，失败时不要上传 Release。
+自动验证已覆盖 317 项逻辑和契约测试、29 张本地练习图的只读算法审计、语法检查与预览发布树审计。开发过程不会自动操作用户的 Photoshop；实际画笔、模态窗口、蒙版写回与文件夹选择器需由用户安装后验收。
 
-## 开发预览安装
+## 安装开发预览包
 
 1. 安装 Photoshop 25.0 或更高版本。
 2. 安装 Adobe UXP Developer Tool。
-3. 从 GitHub Releases 下载 `ps-offline-mask-*-uxp-preview.zip` 并解压到本地目录。
-4. 打开 UXP Developer Tool，选择 **Add Plugin**，指向解压目录中的 `manifest.json`。
-5. 点击 **Load**，在 Photoshop 的插件菜单中打开“离线抠图”面板。
-6. 主面板会显示当前图层/蒙版结果缩略图。点击面板内的“打开抠图精修”后可立即绘制、滚轮缩放并使用 `[`/`]`；底部输入诊断只记录宿主是否转发了这些事件，不会禁用画笔。
+3. 从公开仓库 [Releases](https://github.com/Homer79980/ps-offline-mask-releases/releases) 下载 `ps-offline-mask-0.4.0-uxp-preview.zip`。
+4. 对照 Release 中的 SHA-256 校验下载文件。
+5. 解压 ZIP。打开 UXP Developer Tool，选择 **Add Plugin**，指向解压目录中的 `manifest.json`。
+6. 点击 **Load**，再从 Photoshop 的“增效工具/插件”菜单打开“离线抠图”。菜单中只应有一个入口。
 
-“离线抠图”主面板范围约为 `320×420` 到 `1600×2400`。Photoshop 插件菜单只显示“离线抠图”；精修窗口由主面板按钮打开，默认设计尺寸为 `1100×820`，最小设计尺寸为 `640×480`。UXP 是否允许用户从窗口边缘改变模态窗口尺寸仍需在真实 Photoshop 25+ 验证，当前预览包不把它作为已通过能力。单入口与独立可停靠面板无法同时成立，本版按用户确认优先保留单入口。
+从旧版升级时，先在 UXP Developer Tool 中 Stop 并移除旧实例，再解压新包并重新 Add Plugin。不要覆盖仍在加载的旧目录，否则 Photoshop 可能继续运行旧脚本和旧窗口定义。
 
-从 `v0.2.7` 或更早版本升级时，必须在 UXP Developer Tool 中先 Stop 并移除旧实例，再从新解压目录重新 Add Plugin。不要直接覆盖旧目录后继续使用已加载实例，否则 Photoshop 可能继续运行旧 JavaScript 和旧窗口定义。
+## 兼容范围
 
-开发预览包只处理当前文档中选中的普通、未完全锁定的像素图层；单选一个像素图层时会自动读取，手动“刷新”作为同层内容更新的兜底；多选时进入批量模式并处理全部可写入的选中像素图层。文字、智能对象、组和矢量图层需要先在 Photoshop 中栅格化。“背景”图层需要先双击转换为普通图层；完全锁定的像素图层需要先解锁。插件会直接提示或在批量中跳过这些不可写入图层。
-
-本预览版只以 Photoshop 25+ 的直接 Imaging 写入为发布目标。仓库中保留旧兼容代码及自动化回归，但不属于 v0.3.5-preview 的支持声明。
+- 支持普通、未完全锁定的像素图层。
+- 支持 RGB 8/16/32-bit 图层读取；算法输入在本地归一化为 8-bit。
+- “背景”图层需先双击转换为普通图层。
+- 文字、组、智能对象和矢量图层需先在 Photoshop 中自行栅格化。
+- 本地单图处理上限为 16,777,216 像素。
+- 文件夹批量源格式为 PNG、JPG、JPEG、WebP，输出固定为透明 PNG。
 
 ## 从源码运行
 
-源码仓库为私有仓库。维护者可以克隆源码后执行：
+维护者在私有源码仓库执行：
 
 ```powershell
 npm install
 npm test
 npm run check
+npm run audit:practice
+npm run audit:release
 ```
 
 随后在 UXP Developer Tool 中加载 `plugin/manifest.json`。
 
-## AI 视觉模型（可选）
+## AI 视觉模型变体
 
-默认模式完全离线。签入仓库的 `plugin/manifest.json` 不申请网络权限。要启用 AI 模式，先运行 `npm run prepare:manifest -- --domain=https://your-api.example.com` 生成带明确域名白名单的 `plugin/manifest.ai.json`，再由可信宿主集成注入 `globalThis.__PS_MASK_VISION_API__`。AI 模式只有在配置有效且用户明确确认图层数据外发后才可选。远程端点必须使用 HTTPS；不要把 API Key、Cookie 或私有端点写入源码或 Release 包。完整契约见 [VISION_API.md](VISION_API.md)。
+默认包完全离线且不申请网络权限。要测试视觉模型接口，先生成只允许指定 HTTPS 服务域名的清单：
+
+```powershell
+npm run prepare:manifest -- --domain=https://your-api.example.com
+```
+
+再由可信宿主注入 `globalThis.__PS_MASK_VISION_API__` 和运行时密钥提供器。不要把 API Key、Cookie、Authorization、私有端点或客户素材写入仓库或发布包。契约见 [VISION_API.md](VISION_API.md)。
 
 ## 卸载
 
-在 UXP Developer Tool 中停止并移除开发预览插件即可。它不会修改原始像素；已应用的图层蒙版仍可通过 Photoshop 历史记录或图层蒙版编辑撤销。
+在 UXP Developer Tool 中 Stop 并移除插件即可。插件不会修改源码目录中的图片；已应用到 Photoshop 文档的图层或蒙版应通过 Photoshop 历史记录管理。
