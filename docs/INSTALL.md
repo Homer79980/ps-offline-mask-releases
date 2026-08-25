@@ -2,7 +2,7 @@
 
 ## 当前版本状态
 
-当前下载是 `v0.3.3-preview` UXP Developer Tool 开发预览包，不是签名后的生产 `.ccx`。最低宿主为 Photoshop 25.0。纯色背景算法已通过无宿主自动化质量门和 29 张练习素材离线回归；精修输入、前景图层写回、批量宿主写回和 Windows/macOS 安装仍需真实宿主验收，不能把此包当作生产版。
+当前下载是 `v0.3.4-preview` UXP Developer Tool 开发预览包，不是签名后的生产 `.ccx`。最低宿主为 Photoshop 25.0。纯色背景算法已通过无宿主自动化质量门；29 张本地练习素材中，23 张算法适用图逐图通过、3 张非纯色边框图判为不适用、3 张同色歧义图要求精修或视觉 API。精修输入、前景图层写回、批量宿主写回和 Windows/macOS 安装仍需真实宿主验收，不能把此包当作生产版。
 
 发布前在仓库根目录运行 `npm run audit:release`。生产包还必须在包含三平台 Addon 和 `native/release-integrity.json` 的组装目录中，于 macOS 运行 `npm run audit:production`；AI 变体使用 `node scripts/audit-release.js --production --manifest=plugin/manifest.ai.json`。审计会检查 canonical manifest、二进制架构、SHA-256 完整性、macOS 签名及 Gatekeeper/公证状态，失败时不要上传 Release。
 
@@ -21,7 +21,7 @@
 
 开发预览包只处理当前文档中选中的普通、未完全锁定的像素图层；单选一个像素图层时会自动读取，手动“刷新”作为同层内容更新的兜底；多选时进入批量模式并处理全部可写入的选中像素图层。文字、智能对象、组和矢量图层需要先在 Photoshop 中栅格化。“背景”图层需要先双击转换为普通图层；完全锁定的像素图层需要先解锁。插件会直接提示或在批量中跳过这些不可写入图层。
 
-本预览版只以 Photoshop 25+ 的直接 Imaging 写入为发布目标。仓库中保留旧兼容代码及自动化回归，但不属于 v0.3.3-preview 的支持声明。
+本预览版只以 Photoshop 25+ 的直接 Imaging 写入为发布目标。仓库中保留旧兼容代码及自动化回归，但不属于 v0.3.4-preview 的支持声明。
 
 ## 从源码运行
 
