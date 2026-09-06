@@ -2,7 +2,7 @@
 
 Photoshop 离线抠图插件的公开下载与使用文档。源码在私有仓库维护，本仓库只发布安装包、校验值和面向用户的说明。
 
-![离线抠图主面板](assets/ui-preview-v0.4.png)
+![离线抠图主面板](assets/ui-preview-v0.1.0.png)
 
 ![离线抠图精修工作区](assets/refine-preview-v0.4.png)
 

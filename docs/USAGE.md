@@ -1,8 +1,8 @@
 # 使用说明
 
-![主面板结构](ui-preview-v0.4.png)
+![主面板结构](../assets/ui-preview-v0.1.0.png)
 
-![精修工作区结构](refine-preview-v0.4.png)
+![精修工作区结构](../assets/refine-preview-v0.4.png)
 
 ## 单图抠图
 
