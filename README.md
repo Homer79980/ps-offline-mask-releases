@@ -4,14 +4,12 @@ Photoshop 离线抠图插件的公开下载与使用文档。源码在私有仓�
 
 ![离线抠图主面板](assets/ui-preview-v0.1.0.png)
 
-![离线抠图精修工作区](assets/refine-preview-v0.4.png)
-
 ## 当前版本
 
 [`v0.1.0`](https://github.com/Homer79980/ps-offline-mask-releases/releases/tag/v0.1.0) 面向 Photoshop 25.0+：
 
 - 安装包：`ps-offline-mask-0.1.0.ccx`
-- SHA-256：`FE461228BD1BF004D6A1C482611D7BA5CCE639E8722B06186D696A6F59DFF2A0`
+- SHA-256：`559386658EB5C060CBCE76F7EC9FE2688F91516B293C61D90E2A5969FE6302D0`
 - [安装说明](docs/INSTALL.md)
 - [操作说明](docs/USAGE.md)
 - [本版变更](docs/RELEASE-v0.1.0.md)
