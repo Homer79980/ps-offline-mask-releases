@@ -15,7 +15,11 @@
 
 ## 安装说明
 
-下载 `ps-offline-mask-0.1.0.ccx` 后可先尝试双击安装。该包尚未经过 Adobe Marketplace 签名；若 Creative Cloud 拒绝安装，请把 CCX 复制并改名为 ZIP，解压后使用 UXP Developer Tool 加载根目录的 `manifest.json`。
+下载 `ps-offline-mask-0.1.0.ccx` 后双击安装，在 Creative Cloud 中选择“本地安装”。当前包由 Adobe UXP Developer Tools 2.2.1 生成，并通过 Windows Unified Plugin Installer Agent 8.5.0.13 安装验证；尚未经过 Adobe Marketplace 审核和 macOS 安装回归。
+
+当前 SHA-256：`0E38D53AE66DE0EE17A5D5FF50A67F3285AA050B8AA38FC850B57705C8D63498`。
+
+2026-09-07 早期上传的同名文件包含 Windows 反斜杠 ZIP 路径，会触发 Creative Cloud 错误代码 `-1`。该文件已替换；如果下载过旧包，请重新下载并核对以上校验值。
 
 ## 已知边界
 

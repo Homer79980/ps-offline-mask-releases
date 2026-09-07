@@ -9,16 +9,19 @@ Photoshop 离线抠图插件的公开下载与使用文档。源码在私有仓�
 [`v0.1.0`](https://github.com/Homer79980/ps-offline-mask-releases/releases/tag/v0.1.0) 面向 Photoshop 25.0+：
 
 - 安装包：`ps-offline-mask-0.1.0.ccx`
-- SHA-256：`559386658EB5C060CBCE76F7EC9FE2688F91516B293C61D90E2A5969FE6302D0`
+- SHA-256：`0E38D53AE66DE0EE17A5D5FF50A67F3285AA050B8AA38FC850B57705C8D63498`
 - [安装说明](docs/INSTALL.md)
+- [错误代码 -1 排查](docs/CCX-INSTALL-FAQ.md)
 - [操作说明](docs/USAGE.md)
 - [本版变更](docs/RELEASE-v0.1.0.md)
 
 ## 安装
 
-先下载 CCX 并尝试双击安装。当前安装包尚未经过 Adobe Marketplace 签名；如果 Creative Cloud 拒绝未签名包，把 CCX 复制并改名为 ZIP，解压后在 UXP Developer Tool 中选择 **Add Plugin**，指向根目录的 `manifest.json`，再点击 **Load**。
+下载 CCX 后双击安装，在 Creative Cloud 中选择“本地安装”。当前包由 Adobe UXP Developer Tools 2.2.1 生成，并通过 Windows Unified Plugin Installer Agent 8.5.0.13 安装验证；尚未经过 Adobe Marketplace 审核和 macOS 安装回归。
 
-升级时先 Stop 并移除旧实例，不要覆盖正在加载的旧目录。重启 Photoshop 后，从“增效工具/插件”菜单打开“离线抠图”。
+如果曾在 2026-09-07 下载过旧的同名文件，请重新下载并核对以上新 SHA-256。旧包的 Windows 反斜杠 ZIP 路径可能触发 Creative Cloud 错误代码 `-1`。
+
+升级时先在 Creative Cloud 的“插件 > 管理插件”中卸载旧版本；如果曾通过 UXP Developer Tool 加载开发版，也要先 Stop 并移除旧实例。重启 Photoshop 后，从“增效工具/插件”菜单打开“离线抠图”。
 
 ## 使用
 

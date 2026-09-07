@@ -2,32 +2,32 @@
 
 ## 当前版本
 
-`v0.1.0` 是 Photoshop 25.0+ 的 UXP 插件安装包。`.ccx` 内部结构已通过自动审计，但尚未经过 Adobe Marketplace 签名与完整三平台安装回归；Creative Cloud 拒绝未签名包时，请按下方“开发者加载”安装。当前精修提供结果预览、边缘参数、计算、应用和导航。
+`v0.1.0` 是 Photoshop 25.0+ 的 UXP 插件安装包。当前 `.ccx` 由 Adobe UXP Developer Tools 2.2.1 生成，已通过 Windows Unified Plugin Installer Agent 8.5.0.13 安装验证；尚未经过 Adobe Marketplace 审核和 macOS 安装回归。当前精修提供结果预览、边缘参数、计算、应用和导航。
 
-自动验证已通过 480 项逻辑和契约测试、语法检查与预览发布树审计，并完成 43 张本地练习图的只读算法审计。审计中仍有高残留样本被明确标记为需要视觉 API，未被伪装成“本地算法通过”；开发过程不会自动操作用户的 Photoshop，真实模态窗口和蒙版写回需由用户安装后验收。
+自动验证已通过 595 项逻辑和契约测试、语法检查与发布树审计，并完成 43 张本地练习图的只读算法审计。CCX 包含 54 个运行文件、一个根目录 `manifest.json` 和一个 Photoshop 面板入口；没有重复路径、反斜杠路径或外层包装目录。审计中仍有高残留样本被明确标记为需要视觉 API，未被伪装成“本地算法通过”。
 
-## 推荐安装：UXP Developer Tool
+## 推荐安装：双击 CCX
 
-1. 安装 Photoshop 25.0 或更高版本。
-2. 安装 Adobe UXP Developer Tool。
-3. 从公开仓库 [Releases](https://github.com/Homer79980/ps-offline-mask-releases/releases/tag/v0.1.0) 下载 `ps-offline-mask-0.1.0.ccx`。
-4. 对照 Release 中的 SHA-256 校验下载文件。
-5. 若双击安装不可用，将 CCX 复制一份改名为 ZIP 并解压。打开 UXP Developer Tool，选择 **Add Plugin**，指向解压根目录的 `manifest.json`。
-6. 点击 **Load**，再从 Photoshop 的“增效工具/插件”菜单打开“离线抠图”。菜单中只应有一个入口。
+1. 安装 Photoshop 25.0 或更高版本，并确认 Creative Cloud Desktop 可以正常打开。
+2. 从公开仓库 [Releases](https://github.com/Homer79980/ps-offline-mask-releases/releases/tag/v0.1.0) 下载 `ps-offline-mask-0.1.0.ccx`。
+3. 对照 Release 中的 SHA-256 校验下载文件。当前正确值为 `0E38D53AE66DE0EE17A5D5FF50A67F3285AA050B8AA38FC850B57705C8D63498`。
+4. 双击 CCX；Creative Cloud 提示插件未经 Marketplace 验证时，选择 **Install locally/本地安装**，再确认安装。
+5. 重启 Photoshop，从“增效工具/插件”菜单打开“离线抠图”。菜单中只应有一个入口。
 
-从旧版升级时，先在 UXP Developer Tool 中 Stop 并移除旧实例，再解压新包并重新 Add Plugin。不要覆盖仍在加载的旧目录，否则 Photoshop 可能继续运行旧脚本和旧窗口定义。
+从旧版升级时，先在 Creative Cloud 的“插件 > 管理插件”中卸载旧版本；如果还使用 UXP Developer Tool 加载过开发版，也要先 Stop 并移除旧实例。不要同时保留安装版和开发加载版，否则 Photoshop 可能继续运行旧脚本和旧窗口定义。
 
 ## `.ccx` 双击失败（错误代码 -1）
 
-如果双击 `ps-offline-mask-0.1.0.ccx` 后 Creative Cloud 显示“无法安装插件”或错误代码 `-1`，请使用开发者加载：把 CCX 复制一份并改名为 ZIP，解压后在 UXP Developer Tool 中选择 **Add Plugin**，指向解压目录根部的 `manifest.json`，再点击 **Load**。不要同时加载旧版本。
+2026-09-07 早期上传的同名包使用了 Windows 反斜杠 ZIP 路径，可能触发此错误；该文件已经替换。先删除旧下载并重新下载，确认 SHA-256 是上面的新值。Creative Cloud 即使弹出 `-1` 也可能已经留下同版本插件，因此请在“插件 > 管理插件”中检查并卸载旧的 `PS Offline Mask`，然后再次双击新包。
 
-请改用上面的 UXP Developer Tool 安装路径：
+如果新包仍然报错，可使用 Adobe 官方开发者加载作为备用路径：
 
-1. 将 `.ccx` 复制一份并改名为 `.zip`，解压到一个新的目录。
-2. 在 UXP Developer Tool 中选择 **Add Plugin**，指向解压目录中的 `manifest.json`（不是外层目录）。
-3. 点击 **Load**，确认 Photoshop 菜单只出现一个“离线抠图”入口。
+1. 安装 Adobe UXP Developer Tool。
+2. 将 `.ccx` 复制一份并改名为 `.zip`，解压到一个新的目录。
+3. 在 UXP Developer Tool 中选择 **Add Plugin**，指向解压目录中的 `manifest.json`（不是外层目录）。
+4. 点击 **Load**，确认 Photoshop 菜单只出现一个“离线抠图”入口。
 
-这种方式不会绕过 Photoshop 的授权或安全机制，也不会修改用户的 Photoshop 文档。待 Adobe 修复 UPI 安装链路后，仍可再次尝试双击 `.ccx`；在此之前不要把 `-1` 视为本插件安装成功的证据。
+这种方式不会绕过 Photoshop 的授权或安全机制，也不会修改用户的 Photoshop 文档。若需进一步定位，可点击 Creative Cloud 错误提示中的“详细信息”，或使用 Adobe Unified Plugin Installer Agent 的 `/list all` 检查插件是否其实已经安装。
 
 ## 兼容范围
 
